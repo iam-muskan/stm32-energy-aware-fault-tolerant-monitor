@@ -1,0 +1,1 @@
+{"name":"Battery state-of-charge (simulation input)","author":"Circuit project","pins":["GND","SOC"],"controls":[{"id":"percent","label":"Battery (%)","type":"range","min":0,"max":100,"step":1}]}
