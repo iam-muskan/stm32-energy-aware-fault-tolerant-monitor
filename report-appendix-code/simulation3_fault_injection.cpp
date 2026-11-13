@@ -56,4 +56,4 @@ Status evaluateTemperature(double tempC) {
     cout << "Fault-injection tests passed: " << passed
        << "/" << cases.size() << '\n';
     return passed == (int)cases.size() ? 0 : 1;
- }
+}
