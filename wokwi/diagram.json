@@ -1,0 +1,190 @@
+{
+  "version": 1,
+  "author": "Blue Pill environmental monitor",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-stm32-bluepill",
+      "id": "mcu",
+      "top": 80,
+      "left": 100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -140,
+      "left": 70,
+      "attrs": {
+        "temperature": "26",
+        "humidity": "55"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullup",
+      "top": -60,
+      "left": 210,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "chip-mq135",
+      "id": "mq1",
+      "top": -120,
+      "left": 410,
+      "attrs": {
+        "reading": "600"
+      }
+    },
+    {
+      "type": "chip-mq135",
+      "id": "mq2",
+      "top": 40,
+      "left": 410,
+      "attrs": {
+        "reading": "620"
+      }
+    },
+    {
+      "type": "chip-gp2y1010",
+      "id": "dust",
+      "top": 200,
+      "left": 410,
+      "attrs": {
+        "dust": "50"
+      }
+    },
+    {
+      "type": "chip-battery",
+      "id": "battery",
+      "top": 350,
+      "left": 410,
+      "attrs": {
+        "percent": "80"
+      }
+    }
+  ],
+  "connections": [
+    [
+      "mcu:3V3.2",
+      "dht:VCC",
+      "red",
+      []
+    ],
+    [
+      "mcu:GND.1",
+      "dht:GND",
+      "black",
+      []
+    ],
+    [
+      "mcu:A2",
+      "dht:SDA",
+      "green",
+      []
+    ],
+    [
+      "mcu:3V3.2",
+      "pullup:1",
+      "red",
+      []
+    ],
+    [
+      "pullup:2",
+      "dht:SDA",
+      "green",
+      []
+    ],
+    [
+      "mcu:5V",
+      "mq1:VCC",
+      "red",
+      []
+    ],
+    [
+      "mcu:5V",
+      "mq2:VCC",
+      "red",
+      []
+    ],
+    [
+      "mcu:5V",
+      "dust:VCC",
+      "red",
+      []
+    ],
+    [
+      "mcu:GND.1",
+      "mq1:GND",
+      "black",
+      []
+    ],
+    [
+      "mcu:GND.1",
+      "mq2:GND",
+      "black",
+      []
+    ],
+    [
+      "mcu:GND.1",
+      "dust:GND",
+      "black",
+      []
+    ],
+    [
+      "mq1:AO",
+      "mcu:A0",
+      "orange",
+      []
+    ],
+    [
+      "mq2:AO",
+      "mcu:A1",
+      "orange",
+      []
+    ],
+    [
+      "dust:VO",
+      "mcu:A3",
+      "blue",
+      []
+    ],
+    [
+      "mcu:A4",
+      "dust:LED",
+      "purple",
+      []
+    ],
+    [
+      "mcu:A9",
+      "$serialMonitor:RX",
+      "green",
+      []
+    ],
+    [
+      "mcu:A10",
+      "$serialMonitor:TX",
+      "green",
+      []
+    ],
+    [
+      "battery:SOC",
+      "mcu:B0",
+      "cyan",
+      []
+    ],
+    [
+      "battery:GND",
+      "mcu:GND.1",
+      "black",
+      []
+    ]
+  ],
+  "serialMonitor": {
+    "display": "always",
+    "newline": "lf",
+    "convertEol": true
+  }
+}
