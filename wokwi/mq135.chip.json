@@ -1,0 +1,1 @@
+{"name":"MQ135 ADC input (simulation)","author":"Circuit project","pins":["VCC","GND","AO"],"controls":[{"id":"reading","label":"MQ135 raw ADC (0-4095)","type":"range","min":0,"max":4095,"step":1}]}
