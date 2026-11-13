@@ -1,0 +1,1 @@
+{"name":"GP2Y1010 + driver + conditioner (model)","author":"Circuit project","pins":["VCC","GND","LED","VO"],"controls":[{"id":"dust","label":"Model dust (ug/m3)","type":"range","min":0,"max":500,"step":10}]}
